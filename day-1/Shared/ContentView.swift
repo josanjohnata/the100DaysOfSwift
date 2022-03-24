@@ -99,3 +99,48 @@ print(number.isMultiple(of: 3))
 print(120.isMultiple(of: 3))
 
 """
+
+// --------------------------Float Numbers------------------------
+
+var floatNumber = """
+// Primeiro, quando você cria um número de ponto flutuante, o Swift o considera um Double. Isso é abreviação de “número de ponto flutuante de precisão dupla”, que eu percebo ser um nome bastante estranho – a maneira como lidamos com números de ponto flutuante mudou muito ao longo dos anos, e embora o Swift faça um bom trabalho ao simplificar isso às vezes você pode encontrar algum código mais antigo que é mais complexo. Nesse caso, significa que o Swift aloca o dobro da quantidade de armazenamento que algumas linguagens mais antigas fariam, o que significa que Doublepode armazenar números absolutamente enormes.
+
+// Em segundo lugar, o Swift considera os decimais como um tipo de dados totalmente diferente dos inteiros, o que significa que você não pode misturá-los. Afinal, os números inteiros são sempre 100% precisos, enquanto os decimais não são, então o Swift não permitirá que você coloque os dois juntos, a menos que você peça especificamente para que isso aconteça.
+
+// Na prática, isso significa que você não pode fazer coisas como adicionar um inteiro a um decimal, então esse tipo de código produzirá um erro:
+
+let a = 1
+let b = 2.0
+let c = a + b
+// Sim, podemos ver que bé realmente apenas o inteiro 2 mascarado como um decimal, mas o Swift ainda não permitirá que esse código seja executado. Isso é chamado de segurança de tipo : o Swift não nos permite misturar diferentes tipos de dados por acidente.
+
+// Se você quiser que isso aconteça, você precisa dizer ao Swift explicitamente que ele deve tratar o Doubleinterior bcomo um Int:
+
+let c = a + Int(b)
+// Ou trate o Intinterior acomo um Double:
+
+let c = Double(a) + b
+// Terceiro, o Swift decide se você deseja criar um Doubleou um Intcom base no número que você fornece – se houver um ponto ali, você tem um Double, caso contrário é um Int. Sim, mesmo que os números após o ponto sejam 0.
+
+// Assim:
+
+let double1 = 3.1
+let double2 = 3131.3131
+let double3 = 3.0
+let int1 = 3
+// Combinado com a segurança de tipo, isso significa que, uma vez que o Swift tenha decidido que tipo de dados uma constante ou variável mantém, ela deve sempre manter o mesmo tipo de dados. Isso significa que este código está bem:
+
+var name = "Nicolas Cage"
+name = "John Travolta"
+// Mas esse tipo de código não é:
+
+var name = "Nicolas Cage"
+name = 57
+// Isso diz ao Swift nameque armazenará uma string, mas então ele tenta colocar um inteiro lá.
+
+// Finalmente, os números decimais têm o mesmo intervalo de operadores e operadores de atribuição compostos que os inteiros:
+
+var rating = 5.0
+rating *= 2
+// Muitas APIs mais antigas usam uma maneira ligeiramente diferente de armazenar números decimais, chamada CGFloat. Felizmente, o Swift nos permite usar Doublenúmeros regulares em todos os lugares em que um CGFloaté esperado, portanto, embora você veja CGFloataparecer de vez em quando, pode simplesmente ignorá-lo.
+"""
