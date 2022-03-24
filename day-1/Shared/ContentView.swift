@@ -55,4 +55,47 @@ Apple engineer
 
 // print(filename.hasSuffix(".jpg"))
 
+// ---------------------Numbers---------------------------
 
+// Na declaração de números inteiros é similar a declaração de strings, sendo que podemos separar os números com Underscore "_"  Ex.: let reallyBig = 1_000_000_000.
+let score = 10
+let lowerScore = score - 2
+let higherScore = score + 10
+let doubledScore = score * 2
+let squaredScore = score * score
+let halvedScore = score / 2
+
+// print(score)
+
+// Em vez de fazer novas constantes a cada vez, o Swift tem algumas operações especiais que ajustam um inteiro de alguma forma e atribuem o resultado de volta ao número original.
+
+// Por exemplo, isso cria uma countervariável igual a 10 e adiciona mais 5 a ela:
+
+var counter = """
+
+var counter = 10
+counter = counter + 5
+//Em vez de escrever counter = counter + 5, você pode usar o operador abreviado +=, que adiciona um número diretamente ao inteiro em questão:
+
+counter += 5
+print(score)
+// Isso faz exatamente a mesma coisa, apenas com menos digitação. Chamamos esses operadores de atribuição compostos e eles vêm em outras formas:
+
+counter *= 2
+print(score)
+counter -= 10
+print(score)
+counter /= 2
+print(score)
+
+// Antes de terminarmos com os inteiros, quero mencionar uma última coisa: como strings, os inteiros têm algumas funcionalidades úteis anexadas. Por exemplo, você pode chamar isMultiple(of:)um inteiro para descobrir se é um múltiplo de outro inteiro.
+
+// Então, poderíamos perguntar se 120 é um múltiplo de três assim:
+
+let number = 120
+print(number.isMultiple(of: 3))
+// Estou chamando isMultiple(of:)uma constante lá, mas você pode usar o número diretamente se quiser:
+
+print(120.isMultiple(of: 3))
+
+"""
