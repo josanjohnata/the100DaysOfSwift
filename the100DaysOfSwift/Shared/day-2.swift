@@ -103,3 +103,31 @@ var rec = """
 8 - Você pode representar um estado verdadeiro ou falso simples usando um booleano, que pode ser invertido usando o !operador ou chamando toggle().
 9 - A interpolação de strings nos permite colocar constantes e variáveis ​​em nossas strings de maneira simplificada e eficiente.
 """
+
+//-----------------------Exercícios--------------------------------
+
+// Seu objetivo é escrever um playground Swift que:
+
+//Cria uma constante mantendo qualquer temperatura em Celsius.
+//Converte para Fahrenheit multiplicando por 9, dividindo por 5 e adicionando 32.
+//Imprime o resultado para o usuário, mostrando os valores Celsius e Fahrenheit.
+//Você já sabe tudo o que precisa para resolver esse problema, mas se quiser algumas dicas, adicionarei algumas abaixo.
+//
+//Hackear com assinantes Swift + pode obter uma solução de vídeo completa para este checkpoint aqui: Solution to Checkpoint 1 . Se você ainda não se inscreveu, pode iniciar uma avaliação gratuita hoje.
+
+//
+//Por favor, vá em frente e tente construir o playground agora.
+//
+//Ainda aqui? Bom, aqui vão algumas dicas:
+//
+//Use let para fazer sua constante. Você pode chamá-lo como quiser, mas acho celsiusque seria um nome apropriado.
+//Celsius é comumente armazenado como um decimal, portanto, certifique-se de criá-lo como um. Isso pode significar adicionar “.0” ao final – usando 25,0 em vez de 25, por exemplo.
+//Usamos * para multiplicação e / para divisão.
+//Use \(someVariable)para ativar a interpolação de strings.
+//Se você quiser ficar chique com print(), você pode usar Option+Shift+8 para obter o símbolo de graus: °. Isso significa que você pode escrever algo como 25°F.
+
+//var celsius = 28.0
+//let convertToFahrenheit = (celsius * 9) / 5 + 32
+//let fahrenheit = convertToFahrenheit
+//let result = "Graus em Celsius é \(celsius) e em Fahrenheit é \(fahrenheit)° F"
+//print(result)
