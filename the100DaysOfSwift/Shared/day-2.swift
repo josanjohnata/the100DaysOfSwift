@@ -89,3 +89,17 @@ let missionMessage2 = "Apollo \(number) landed on the moon."
 //Dica: você pode colocar cálculos dentro da interpolação de strings, se desejar. Por exemplo, isso imprimirá “5 x 5 é 25”:
 
 // print("5 x 5 is \(5 * 5)")
+
+// -------------------------Recapitulando o que estudamos-------------------------------
+
+var rec = """
+1 - Swift nos permite criar constantes usando let, e variáveis ​​usando var.
+2 - Se você não pretende alterar um valor, certifique-se de usar letpara que o Swift possa ajudá-lo a evitar erros.
+3 - As strings de Swift contêm texto, desde strings curtas até romances inteiros. Eles funcionam muito bem com emoji e qualquer idioma do mundo e têm funcionalidades úteis, como counte uppercased().
+4 - Você cria strings usando aspas duplas no início e no final, mas se quiser que sua string passe por várias linhas, você precisa usar três aspas duplas no início e no final.
+5 - Swift chama seus números inteiros de inteiros , e eles podem ser positivos ou negativos. Eles também têm funcionalidades úteis, como isMultiple(of:).
+6 - Em Swift, os números decimais são chamados Double, abreviação de número de ponto flutuante de tamanho duplo. Isso significa que eles podem conter números muito grandes, se necessário, mas também não são 100% precisos – você não deve usá-los quando for necessário 100% de precisão, como ao lidar com dinheiro.
+7 - Existem muitos operadores aritméticos integrados, como +, -, *e /, juntamente com os operadores de atribuição compostos especiais, como os +=que modificam as variáveis ​​diretamente.
+8 - Você pode representar um estado verdadeiro ou falso simples usando um booleano, que pode ser invertido usando o !operador ou chamando toggle().
+9 - A interpolação de strings nos permite colocar constantes e variáveis ​​em nossas strings de maneira simplificada e eficiente.
+"""
