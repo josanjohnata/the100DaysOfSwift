@@ -17,7 +17,7 @@ print(isAuthenticated)
 // Isso imprimirá “true” e depois “false” quando for executado, porque isAuthenticatedcomeçou como false, e definimos como não false, que é true, e depois o invertemos novamente para que volte a false.
 
 // Os booleanos têm uma pequena funcionalidade extra que pode ser útil. Em particular, se você chamar toggle()um booleano, ele mudará um valor true para false e um valor false para true. Para testar isso, tente fazer gameOveruma variável e modificá-la assim:
-"""
+var testToggle = """
 var gameOver2 = false
 print(gameOver2)
 
