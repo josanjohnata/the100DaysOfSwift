@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC3FF3A527ED39D1009A17F6 /* day-2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FF3A427ED39D1009A17F6 /* day-2.swift */; };
+		FC3FF3A627ED39D1009A17F6 /* day-2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FF3A427ED39D1009A17F6 /* day-2.swift */; };
 		FC86EA9627EA9C2C00E90060 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86EA9527EA9C2C00E90060 /* Tests_iOS.swift */; };
 		FC86EA9827EA9C2C00E90060 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86EA9727EA9C2C00E90060 /* Tests_iOSLaunchTests.swift */; };
 		FC86EAA227EA9C2D00E90060 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86EAA127EA9C2D00E90060 /* Tests_macOS.swift */; };
 		FC86EAA427EA9C2D00E90060 /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86EAA327EA9C2D00E90060 /* Tests_macOSLaunchTests.swift */; };
 		FC86EAA527EA9C2D00E90060 /* day_1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86EA7D27EA9C2A00E90060 /* day_1App.swift */; };
 		FC86EAA627EA9C2D00E90060 /* day_1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86EA7D27EA9C2A00E90060 /* day_1App.swift */; };
-		FC86EAA727EA9C2D00E90060 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86EA7E27EA9C2A00E90060 /* ContentView.swift */; };
-		FC86EAA827EA9C2D00E90060 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86EA7E27EA9C2A00E90060 /* ContentView.swift */; };
+		FC86EAA727EA9C2D00E90060 /* day_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86EA7E27EA9C2A00E90060 /* day_1.swift */; };
+		FC86EAA827EA9C2D00E90060 /* day_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86EA7E27EA9C2A00E90060 /* day_1.swift */; };
 		FC86EAA927EA9C2D00E90060 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC86EA7F27EA9C2C00E90060 /* Assets.xcassets */; };
 		FC86EAAA27EA9C2D00E90060 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC86EA7F27EA9C2C00E90060 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -37,10 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC3FF3A427ED39D1009A17F6 /* day-2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "day-2.swift"; sourceTree = "<group>"; };
 		FC86EA7D27EA9C2A00E90060 /* day_1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_1App.swift; sourceTree = "<group>"; };
-		FC86EA7E27EA9C2A00E90060 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FC86EA7E27EA9C2A00E90060 /* day_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_1.swift; sourceTree = "<group>"; };
 		FC86EA7F27EA9C2C00E90060 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FC86EA8427EA9C2C00E90060 /* day-1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "day-1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC86EA8427EA9C2C00E90060 /* the100DaysOfSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = the100DaysOfSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC86EA8A27EA9C2C00E90060 /* day-1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "day-1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC86EA8C27EA9C2C00E90060 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		FC86EA9127EA9C2C00E90060 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,8 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				FC86EA7D27EA9C2A00E90060 /* day_1App.swift */,
-				FC86EA7E27EA9C2A00E90060 /* ContentView.swift */,
+				FC86EA7E27EA9C2A00E90060 /* day_1.swift */,
 				FC86EA7F27EA9C2C00E90060 /* Assets.xcassets */,
+				FC3FF3A427ED39D1009A17F6 /* day-2.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -107,7 +111,7 @@
 		FC86EA8527EA9C2C00E90060 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FC86EA8427EA9C2C00E90060 /* day-1.app */,
+				FC86EA8427EA9C2C00E90060 /* the100DaysOfSwift.app */,
 				FC86EA8A27EA9C2C00E90060 /* day-1.app */,
 				FC86EA9127EA9C2C00E90060 /* Tests iOS.xctest */,
 				FC86EA9D27EA9C2D00E90060 /* Tests macOS.xctest */,
@@ -158,7 +162,7 @@
 			);
 			name = "day-1 (iOS)";
 			productName = "day-1 (iOS)";
-			productReference = FC86EA8427EA9C2C00E90060 /* day-1.app */;
+			productReference = FC86EA8427EA9C2C00E90060 /* the100DaysOfSwift.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FC86EA8927EA9C2C00E90060 /* day-1 (macOS) */ = {
@@ -299,7 +303,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC86EAA727EA9C2D00E90060 /* ContentView.swift in Sources */,
+				FC3FF3A527ED39D1009A17F6 /* day-2.swift in Sources */,
+				FC86EAA727EA9C2D00E90060 /* day_1.swift in Sources */,
 				FC86EAA527EA9C2D00E90060 /* day_1App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,7 +313,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC86EAA827EA9C2D00E90060 /* ContentView.swift in Sources */,
+				FC3FF3A627ED39D1009A17F6 /* day-2.swift in Sources */,
+				FC86EAA827EA9C2D00E90060 /* day_1.swift in Sources */,
 				FC86EAA627EA9C2D00E90060 /* day_1App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,7 +485,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "the100DaysOfSwift.day-1";
-				PRODUCT_NAME = "day-1";
+				PRODUCT_NAME = the100DaysOfSwift;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -508,7 +514,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "the100DaysOfSwift.day-1";
-				PRODUCT_NAME = "day-1";
+				PRODUCT_NAME = the100DaysOfSwift;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
