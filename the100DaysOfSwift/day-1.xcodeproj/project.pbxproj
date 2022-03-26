@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		FC3FF3A527ED39D1009A17F6 /* day-2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FF3A427ED39D1009A17F6 /* day-2.swift */; };
 		FC3FF3A627ED39D1009A17F6 /* day-2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FF3A427ED39D1009A17F6 /* day-2.swift */; };
+		FC6C9D0527EE85090076C898 /* day_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C9D0427EE85090076C898 /* day_3.swift */; };
+		FC6C9D0627EE85090076C898 /* day_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C9D0427EE85090076C898 /* day_3.swift */; };
 		FC86EA9627EA9C2C00E90060 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86EA9527EA9C2C00E90060 /* Tests_iOS.swift */; };
 		FC86EA9827EA9C2C00E90060 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86EA9727EA9C2C00E90060 /* Tests_iOSLaunchTests.swift */; };
 		FC86EAA227EA9C2D00E90060 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86EAA127EA9C2D00E90060 /* Tests_macOS.swift */; };
@@ -40,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		FC3FF3A427ED39D1009A17F6 /* day-2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "day-2.swift"; sourceTree = "<group>"; };
+		FC6C9D0427EE85090076C898 /* day_3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_3.swift; sourceTree = "<group>"; };
 		FC86EA7D27EA9C2A00E90060 /* day_1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_1App.swift; sourceTree = "<group>"; };
 		FC86EA7E27EA9C2A00E90060 /* day_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_1.swift; sourceTree = "<group>"; };
 		FC86EA7F27EA9C2C00E90060 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,6 +107,7 @@
 				FC86EA7E27EA9C2A00E90060 /* day_1.swift */,
 				FC86EA7F27EA9C2C00E90060 /* Assets.xcassets */,
 				FC3FF3A427ED39D1009A17F6 /* day-2.swift */,
+				FC6C9D0427EE85090076C898 /* day_3.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -305,6 +309,7 @@
 			files = (
 				FC3FF3A527ED39D1009A17F6 /* day-2.swift in Sources */,
 				FC86EAA727EA9C2D00E90060 /* day_1.swift in Sources */,
+				FC6C9D0527EE85090076C898 /* day_3.swift in Sources */,
 				FC86EAA527EA9C2D00E90060 /* day_1App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +320,7 @@
 			files = (
 				FC3FF3A627ED39D1009A17F6 /* day-2.swift in Sources */,
 				FC86EAA827EA9C2D00E90060 /* day_1.swift in Sources */,
+				FC6C9D0627EE85090076C898 /* day_3.swift in Sources */,
 				FC86EAA627EA9C2D00E90060 /* day_1App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
