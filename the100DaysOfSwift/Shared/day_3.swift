@@ -207,3 +207,97 @@ print(temperatures[2])
 //
 //archEnemies["Batman"] = "Penguin"
 //Por fim, assim como os arrays e os outros tipos de dados que vimos até agora, os dicionários vêm com algumas funcionalidades úteis que você desejará usar no futuro – counte removeAll()ambos existem para dicionários e funcionam exatamente como para arrays.
+
+// ------------Como usar conjuntos para pesquisa rápida de dados------------------
+
+// Até agora você aprendeu sobre duas formas de coletar dados em Swift: arrays e dicionários. Existe uma terceira maneira muito comum de agrupar dados, chamada de conjunto – eles são semelhantes aos arrays, exceto que você não pode adicionar itens duplicados e eles não armazenam seus itens em uma ordem específica.
+
+// Criar um conjunto funciona como criar um array: diga ao Swift que tipo de dados ele armazenará, então vá em frente e adicione coisas. Existem duas diferenças importantes, porém, e elas são melhor demonstradas usando algum código.
+
+// Primeiro, veja como você faria um conjunto de nomes de atores:
+
+// let people = Set(["Denzel Washington", "Tom Cruise", "Nicolas Cage", "Samuel L Jackson"])
+
+//Observe como isso realmente cria um array primeiro e depois coloca esse array no conjunto? Isso é intencional e é a maneira padrão de criar um conjunto a partir de dados fixos. Lembre-se, o conjunto removerá automaticamente quaisquer valores duplicados e não lembrará a ordem exata que foi usada na matriz.
+//
+//Se você está curioso para saber como o conjunto ordenou os dados, tente imprimi-lo:
+//
+//print(people)
+
+//Você pode ver os nomes na ordem original, mas também pode obter uma ordem completamente diferente – o conjunto simplesmente não se importa com a ordem em que seus itens vêm.
+//
+//A segunda diferença importante ao adicionar itens a um conjunto é visível quando você adiciona itens individualmente. Aqui está o código:
+//
+//var people = Set<String>()
+//people.insert("Denzel Washington")
+//people.insert("Tom Cruise")
+//people.insert("Nicolas Cage")
+//people.insert("Samuel L Jackson")
+//Observe como estamos usando insert()? Quando tínhamos um array de strings, adicionamos itens chamando append(), mas esse nome não faz sentido aqui – não estamos adicionando um item ao final do conjunto, porque o conjunto armazenará os itens na ordem que desejar .
+//
+//Agora, você pode pensar que os conjuntos soam como matrizes simplificadas – afinal, se você não pode ter duplicatas e perde a ordem de seus itens, por que não usar apenas matrizes? Bem, ambas as restrições realmente se transformam em uma vantagem.
+//
+//Primeiro, não armazenar duplicatas às vezes é exatamente o que você deseja. Há uma razão pela qual escolhi atores no exemplo anterior: o Screen Actors Guild exige que todos os seus membros tenham um nome artístico único para evitar confusão, o que significa que duplicatas nunca devem ser permitidas. Por exemplo, o ator Michael Keaton (Homem-Aranha De Volta ao Lar, Toy Story 3, Batman e mais) na verdade se chama Michael Douglas, mas porque já havia um Michael Douglas na guilda (Avengers, Falling Down, Romancing the Stone e mais), ele tinha que ter um nome único.
+//
+//Em segundo lugar, em vez de armazenar seus itens na ordem exata que você especifica, os conjuntos armazenam-nos em uma ordem altamente otimizada que torna muito rápida a localização de itens. E a diferença não é pequena: se você tiver uma matriz de 1000 nomes de filmes e usar algo como contains()verificar se contém “O Cavaleiro das Trevas”, Swift precisa passar por todos os itens até encontrar um que corresponda – isso pode significar verificar todos 1000 nomes de filmes antes de retornar false, porque O Cavaleiro das Trevas não estava na matriz.
+//
+//Em comparação, chamar contains()um set é tão rápido que você lutaria para medi-lo de forma significativa. Caramba, mesmo se você tivesse um milhão de itens no conjunto, ou mesmo 10 milhões de itens, ele ainda seria executado instantaneamente, enquanto um array pode levar minutos ou mais para fazer o mesmo trabalho.
+//
+//Na maioria das vezes, você se verá usando arrays em vez de conjuntos, mas às vezes – apenas às vezes – você descobrirá que um conjunto é exatamente a escolha certa para resolver um problema específico, e fará com que o código lento seja executado em pouco tempo em absoluto.
+//
+//Dica: Ao lado contains()de , você também encontrará countpara ler o número de itens em um conjunto e sorted()retornar uma matriz classificada contendo os itens do conjunto.
+
+//------------------------Como criar e usar enums--------------------------
+//Um enum – abreviação de enumeration – é um conjunto de valores nomeados que podemos criar e usar em nosso código. Eles não têm nenhum significado especial para o Swift, mas são mais eficientes e seguros, então você os usará muito em seu código.
+//
+//Para demonstrar o problema, digamos que você queira escrever algum código para permitir que o usuário selecione um dia da semana. Você pode começar assim:
+//
+//var selected = "Monday"
+//Mais tarde, no seu código, você o altera, assim:
+//
+//selected = "Tuesday"
+//Isso pode funcionar bem em programas muito simples, mas dê uma olhada neste código:
+//
+//selected = "January"
+//Ops! Você digitou acidentalmente um mês em vez de um dia – o que seu código fará? Bem, você pode ter a sorte de ter um colega detectando o erro enquanto revisa seu código, mas que tal isso:
+//
+//selected = "Friday "
+//Que tem espaço no final de sexta-feira, e “sexta-feira” com espaço é diferente de “sexta-feira” sem espaço aos olhos de Swift. Novamente, o que seu código faria?
+//
+//Usar strings para esse tipo de coisa requer uma programação muito cuidadosa, mas também é bastante ineficiente – realmente precisamos armazenar todas as letras de “Friday” para rastrear um único dia?
+//
+//É aqui que entram os enums: eles nos permitem definir um novo tipo de dados com um punhado de valores específicos que ele pode ter. Pense em um booleano, que só pode ter true ou false – você não pode configurá-lo para “talvez” ou “provavelmente”, porque isso não está no intervalo de valores que ele entende. Enums são os mesmos: podemos listar antecipadamente o intervalo de valores que ele pode ter, e o Swift garantirá que você nunca cometa um erro ao usá-los.
+//
+//Então, poderíamos reescrever nossos dias da semana em um novo enum assim:
+//
+//enum Weekday {
+//    case monday
+//    case tuesday
+//    case wednesday
+//    case thursday
+//    case friday
+//}
+//Isso chama o novo enum Weekdaye fornece cinco casos para lidar com os cinco dias da semana.
+//
+//Agora, em vez de usar strings, usaríamos o enum. Tente isso em seu playground:
+//
+//var day = Weekday.monday
+//day = Weekday.tuesday
+//day = Weekday.friday
+//Com essa alteração você não pode acidentalmente usar “Friday” com um espaço extra ali, ou colocar um nome de mês – você deve sempre escolher um dos dias possíveis listados na enumeração. Você verá até o Swift oferecer todas as opções possíveis quando digitar Weekday., porque sabe que você selecionará um dos casos.
+//
+//Swift faz duas coisas que tornam as enumerações um pouco mais fáceis de usar. Primeiro, quando você tem muitos casos em uma enumeração, você pode escrever apenas caseuma vez e, em seguida, separar cada caso com uma vírgula:
+//
+//enum Weekday {
+//    case monday, tuesday, wednesday, thursday, friday
+//}
+//Em segundo lugar, lembre-se de que uma vez que você atribui um valor a uma variável ou constante, seu tipo de dados se torna fixo – você não pode definir uma variável para uma string primeiro e depois para um inteiro. Bem, para enums, isso significa que você pode pular o nome do enum após a primeira atribuição, assim:
+//
+//var day = Weekday.monday
+//day = .tuesday
+//day = .friday
+//Swift sabe que .tuesdaydeve se referir Weekday.tuesdayporque daysempre deve ser algum tipo de Weekday.
+//
+//Embora não seja visível aqui, um grande benefício dos enums é que o Swift os armazena de forma otimizada – quando dizemos que o Weekday.mondaySwift provavelmente armazenará isso usando um único inteiro como 0, que é muito mais eficiente para armazenar e verificar do que as letras M, o, n, d, a, y.
+
+
