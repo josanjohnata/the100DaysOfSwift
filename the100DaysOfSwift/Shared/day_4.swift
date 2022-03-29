@@ -95,3 +95,22 @@ import Foundation
 
 //let score: Int = "Zero"
 //A Swift simplesmente não pode converter "Zero" em um inteiro para nós, mesmo com uma anotação de tipo solicitando, então o código simplesmente não será construído.
+
+
+//----------------------------Exercicios---------------------------------------
+
+//Agora que você conheceu arrays, dicionários e conjuntos, quero fazer uma pausa por um momento para lhe dar a chance de resolver um pequeno desafio de codificação. Ele não foi projetado para tropeçar, mas sim para incentivá-lo a parar por um tempo e pensar sobre o que aprendeu.
+//
+//Desta vez, o desafio é criar uma matriz de strings e, em seguida, escrever algum código que imprima o número de itens na matriz e também o número de itens exclusivos na matriz.
+//
+//Vou fornecer algumas dicas abaixo, mas reserve um tempo para pensar em uma solução antes de lê-las. Confie em mim: esquecer o que você aprendeu e depois reaprendê-lo realmente faz com que ele se afunde mais fundo!
+//
+// 1 - Você deve começar criando uma matriz de strings, usando algo comolet albums = ["Red", "Fearless"]
+// 2 - Você pode ler o número de itens em sua matriz usando albums.count.
+// 3 - count também existe para conjuntos.
+// 4 - Os conjuntos podem ser feitos a partir de matrizes usandoSet(someArray)
+// 5 - Os conjuntos nunca incluem duplicatas.
+
+let myFamily: [String] = ["John", "Eide", "Ester", "Milk", "John]
+print(myFamily.count)
+print(Set(myFamily))
