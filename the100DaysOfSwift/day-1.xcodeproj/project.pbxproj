@@ -21,6 +21,8 @@
 		FC86EAA827EA9C2D00E90060 /* day_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86EA7E27EA9C2A00E90060 /* day_1.swift */; };
 		FC86EAA927EA9C2D00E90060 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC86EA7F27EA9C2C00E90060 /* Assets.xcassets */; };
 		FC86EAAA27EA9C2D00E90060 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC86EA7F27EA9C2C00E90060 /* Assets.xcassets */; };
+		FCB197AC27F3CFBA0016C0F3 /* day_5.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB197AB27F3CFBA0016C0F3 /* day_5.swift */; };
+		FCB197AD27F3CFBA0016C0F3 /* day_5.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB197AB27F3CFBA0016C0F3 /* day_5.swift */; };
 		FCBEE21C27F2823C00606087 /* day_4.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBEE21B27F2823C00606087 /* day_4.swift */; };
 		FCBEE21D27F2823C00606087 /* day_4.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBEE21B27F2823C00606087 /* day_4.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,7 @@
 		FC86EA9D27EA9C2D00E90060 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC86EAA127EA9C2D00E90060 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		FC86EAA327EA9C2D00E90060 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		FCB197AB27F3CFBA0016C0F3 /* day_5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_5.swift; sourceTree = "<group>"; };
 		FCBEE21B27F2823C00606087 /* day_4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_4.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +115,7 @@
 				FC3FF3A427ED39D1009A17F6 /* day-2.swift */,
 				FC6C9D0427EE85090076C898 /* day_3.swift */,
 				FCBEE21B27F2823C00606087 /* day_4.swift */,
+				FCB197AB27F3CFBA0016C0F3 /* day_5.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -313,6 +317,7 @@
 			files = (
 				FC3FF3A527ED39D1009A17F6 /* day-2.swift in Sources */,
 				FC86EAA727EA9C2D00E90060 /* day_1.swift in Sources */,
+				FCB197AC27F3CFBA0016C0F3 /* day_5.swift in Sources */,
 				FCBEE21C27F2823C00606087 /* day_4.swift in Sources */,
 				FC6C9D0527EE85090076C898 /* day_3.swift in Sources */,
 				FC86EAA527EA9C2D00E90060 /* day_1App.swift in Sources */,
@@ -325,6 +330,7 @@
 			files = (
 				FC3FF3A627ED39D1009A17F6 /* day-2.swift in Sources */,
 				FC86EAA827EA9C2D00E90060 /* day_1.swift in Sources */,
+				FCB197AD27F3CFBA0016C0F3 /* day_5.swift in Sources */,
 				FCBEE21D27F2823C00606087 /* day_4.swift in Sources */,
 				FC6C9D0627EE85090076C898 /* day_3.swift in Sources */,
 				FC86EAA627EA9C2D00E90060 /* day_1App.swift in Sources */,
