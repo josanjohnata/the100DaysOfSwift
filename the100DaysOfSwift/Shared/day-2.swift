@@ -16,9 +16,9 @@ isAuthenticated = !isAuthenticated
 print(isAuthenticated)
 """
 
-// Isso imprimirá “true” e depois “false” quando for executado, porque isAuthenticatedcomeçou como false, e definimos como não false, que é true, e depois o invertemos novamente para que volte a false.
+// Isso imprimirá “true” e depois “false” quando for executado, porque isAuthenticated começou como false, e definimos como não false, que é true, e depois o invertemos novamente para que volte a false.
 
-// Os booleanos têm uma pequena funcionalidade extra que pode ser útil. Em particular, se você chamar toggle()um booleano, ele mudará um valor true para false e um valor false para true. Para testar isso, tente fazer gameOveruma variável e modificá-la assim:
+// Os booleanos têm uma pequena funcionalidade extra que pode ser útil. Em particular, se você chamar toggle()um booleano, ele mudará um valor true para false e um valor false para true. Para testar isso, tente fazer gameOver uma variável e modificá-la assim:
 var testToggle = """
 var gameOver2 = false
 print(gameOver2)
@@ -44,7 +44,7 @@ let action = "hate"
 let lyric = people + " gonna " + action
 // print(lyric)
 
-// Observe como estamos usando +para unir duas strings, mas quando usamos Inte Doublesomamos números? Isso é chamado de sobrecarga de operador – a capacidade de um operador +significar coisas diferentes dependendo de como é usado. Para strings, também se aplica a +=, que adiciona uma string diretamente a outra.
+// Observe como estamos usando +para unir duas strings, mas quando usamos Int e Double somamos números? Isso é chamado de sobrecarga de operador – a capacidade de um operador +significar coisas diferentes dependendo de como é usado. Para strings, também se aplica a +=, que adiciona uma string diretamente a outra.
 
 // Essa técnica funciona muito bem para pequenas coisas, mas você não gostaria de fazer muito isso. Você vê, cada vez que o Swift vê duas strings sendo unidas usando +ele tem que fazer uma nova string delas antes de continuar, e se você tem muitas coisas sendo unidas, é um desperdício.
 
@@ -94,8 +94,8 @@ let missionMessage2 = "Apollo \(number) landed on the moon."
 
 var rec = """
 1 - Swift nos permite criar constantes usando let, e variáveis ​​usando var.
-2 - Se você não pretende alterar um valor, certifique-se de usar letpara que o Swift possa ajudá-lo a evitar erros.
-3 - As strings de Swift contêm texto, desde strings curtas até romances inteiros. Eles funcionam muito bem com emoji e qualquer idioma do mundo e têm funcionalidades úteis, como counte uppercased().
+2 - Se você não pretende alterar um valor, certifique-se de usar let para que o Swift possa ajudá-lo a evitar erros.
+3 - As strings de Swift contêm texto, desde strings curtas até romances inteiros. Eles funcionam muito bem com emoji e qualquer idioma do mundo e têm funcionalidades úteis, como count e uppercased().
 4 - Você cria strings usando aspas duplas no início e no final, mas se quiser que sua string passe por várias linhas, você precisa usar três aspas duplas no início e no final.
 5 - Swift chama seus números inteiros de inteiros , e eles podem ser positivos ou negativos. Eles também têm funcionalidades úteis, como isMultiple(of:).
 6 - Em Swift, os números decimais são chamados Double, abreviação de número de ponto flutuante de tamanho duplo. Isso significa que eles podem conter números muito grandes, se necessário, mas também não são 100% precisos – você não deve usá-los quando for necessário 100% de precisão, como ao lidar com dinheiro.
@@ -120,7 +120,7 @@ var rec = """
 //
 //Ainda aqui? Bom, aqui vão algumas dicas:
 //
-//Use let para fazer sua constante. Você pode chamá-lo como quiser, mas acho celsiusque seria um nome apropriado.
+//Use let para fazer sua constante. Você pode chamá-lo como quiser, mas acho celsius que seria um nome apropriado.
 //Celsius é comumente armazenado como um decimal, portanto, certifique-se de criá-lo como um. Isso pode significar adicionar “.0” ao final – usando 25,0 em vez de 25, por exemplo.
 //Usamos * para multiplicação e / para divisão.
 //Use \(someVariable)para ativar a interpolação de strings.

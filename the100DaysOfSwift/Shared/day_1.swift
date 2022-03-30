@@ -39,11 +39,11 @@ Apple engineer
 
 // -------------------Funcionalidades Importantes------------------------
 
-// Para ver o comprimento de uma string usamos o .count ap;os o nome da váriavel
+// Para ver o comprimento de uma string usamos o .count ap;os o nome da variável
 
 // print(movie.count)
 
-// Outra funcionalidade é o uppercased() que retorna a mesma string com as letras em maiúculas.
+// Outra funcionalidade é o uppercased() que retorna a mesma string com as letras em maiúsculas.
 
 // print(result.uppercased())
 
@@ -69,7 +69,7 @@ let halvedScore = score / 2
 
 // Em vez de fazer novas constantes a cada vez, o Swift tem algumas operações especiais que ajustam um inteiro de alguma forma e atribuem o resultado de volta ao número original.
 
-// Por exemplo, isso cria uma countervariável igual a 10 e adiciona mais 5 a ela:
+// Por exemplo, isso cria uma counter variável igual a 10 e adiciona mais 5 a ela:
 
 var counter = """
 
@@ -103,7 +103,7 @@ print(120.isMultiple(of: 3))
 // --------------------------Float Numbers------------------------
 
 var floatNumber = """
-// Primeiro, quando você cria um número de ponto flutuante, o Swift o considera um Double. Isso é abreviação de “número de ponto flutuante de precisão dupla”, que eu percebo ser um nome bastante estranho – a maneira como lidamos com números de ponto flutuante mudou muito ao longo dos anos, e embora o Swift faça um bom trabalho ao simplificar isso às vezes você pode encontrar algum código mais antigo que é mais complexo. Nesse caso, significa que o Swift aloca o dobro da quantidade de armazenamento que algumas linguagens mais antigas fariam, o que significa que Doublepode armazenar números absolutamente enormes.
+// Primeiro, quando você cria um número de ponto flutuante, o Swift o considera um Double. Isso é abreviação de “número de ponto flutuante de precisão dupla”, que eu percebo ser um nome bastante estranho – a maneira como lidamos com números de ponto flutuante mudou muito ao longo dos anos, e embora o Swift faça um bom trabalho ao simplificar isso às vezes você pode encontrar algum código mais antigo que é mais complexo. Nesse caso, significa que o Swift aloca o dobro da quantidade de armazenamento que algumas linguagens mais antigas fariam, o que significa que Double pode armazenar números absolutamente enormes.
 
 // Em segundo lugar, o Swift considera os decimais como um tipo de dados totalmente diferente dos inteiros, o que significa que você não pode misturá-los. Afinal, os números inteiros são sempre 100% precisos, enquanto os decimais não são, então o Swift não permitirá que você coloque os dois juntos, a menos que você peça especificamente para que isso aconteça.
 
@@ -114,13 +114,13 @@ let b = 2.0
 let c = a + b
 // Sim, podemos ver que bé realmente apenas o inteiro 2 mascarado como um decimal, mas o Swift ainda não permitirá que esse código seja executado. Isso é chamado de segurança de tipo : o Swift não nos permite misturar diferentes tipos de dados por acidente.
 
-// Se você quiser que isso aconteça, você precisa dizer ao Swift explicitamente que ele deve tratar o Doubleinterior bcomo um Int:
+// Se você quiser que isso aconteça, você precisa dizer ao Swift explicitamente que ele deve tratar o Double interior b como um Int:
 
 let c = a + Int(b)
-// Ou trate o Intinterior acomo um Double:
+// Ou trate o Int interior a como um Double:
 
 let c = Double(a) + b
-// Terceiro, o Swift decide se você deseja criar um Doubleou um Intcom base no número que você fornece – se houver um ponto ali, você tem um Double, caso contrário é um Int. Sim, mesmo que os números após o ponto sejam 0.
+// Terceiro, o Swift decide se você deseja criar um Double ou um Int com base no número que você fornece – se houver um ponto ali, você tem um Double, caso contrário é um Int. Sim, mesmo que os números após o ponto sejam 0.
 
 // Assim:
 
@@ -136,11 +136,11 @@ name = "John Travolta"
 
 var name = "Nicolas Cage"
 name = 57
-// Isso diz ao Swift nameque armazenará uma string, mas então ele tenta colocar um inteiro lá.
+// Isso diz ao Swift name que armazenará uma string, mas então ele tenta colocar um inteiro lá.
 
 // Finalmente, os números decimais têm o mesmo intervalo de operadores e operadores de atribuição compostos que os inteiros:
 
 var rating = 5.0
 rating *= 2
-// Muitas APIs mais antigas usam uma maneira ligeiramente diferente de armazenar números decimais, chamada CGFloat. Felizmente, o Swift nos permite usar Doublenúmeros regulares em todos os lugares em que um CGFloaté esperado, portanto, embora você veja CGFloataparecer de vez em quando, pode simplesmente ignorá-lo.
+// Muitas APIs mais antigas usam uma maneira ligeiramente diferente de armazenar números decimais, chamada CGFloat. Felizmente, o Swift nos permite usar Double números regulares em todos os lugares em que um CG Float é esperado, portanto, embora você veja CG Float aparecer de vez em quando, pode simplesmente ignorá-lo.
 """

@@ -11,7 +11,7 @@ import Foundation
 
 // É extremamente comum querer ter muitos dados em um único lugar, sejam os dias da semana, uma lista de alunos de uma turma, a população de uma cidade nos últimos 100 anos, ou qualquer um dos inúmeros outros exemplos.
 
-// No Swift, fazemos esse agrupamento usando um array . Arrays são seus próprios tipos de dados como String, Inte Double, mas em vez de conter apenas uma string, eles podem conter zero strings, uma string, duas strings, três, cinquenta, cinquenta milhões ou até mais strings - eles podem se adaptar automaticamente para armazenar como quantos você precisar, e sempre mantenha os dados na ordem em que você os adiciona.
+// No Swift, fazemos esse agrupamento usando um array . Arrays são seus próprios tipos de dados como String, Int e Double, mas em vez de conter apenas uma string, eles podem conter zero strings, uma string, duas strings, três, cinquenta, cinquenta milhões ou até mais strings - eles podem se adaptar automaticamente para armazenar como quantos você precisar, e sempre mantenha os dados na ordem em que você os adiciona.
 
 // Vamos começar com alguns exemplos simples de criação de arrays:
 
@@ -19,7 +19,7 @@ var beatles = ["John", "Paul", "George", "Ringo"]
 let numbers = [4, 8, 15, 16, 23, 42]
 var temperatures = [25.3, 28.2, 26.4]
 
-// Para visualizar os itens de um arry, pegamos ele pelo índice começando com o 0(zero) na primeira possição.
+// Para visualizar os itens de um array, pegamos ele pelo índice começando com o 0(zero) na primeira posição.
 var index = """
 print(beatles[0])
 print(numbers[1])
@@ -43,7 +43,7 @@ print(temperatures[2])
 //let firstNumber = numbers[0]
 //let notAllowed = firstBeatle + firstNumber
 
-// Isso é segurança de tipo, assim como o Swift não nos permite misturar inteiros e decimais, exceto que é levado a um nível mais profundo. Sim, todos beatlese numbersambos são arrays, mas são tipos especializados de arrays: um é um array de strings e o outro é um array de inteiros.
+// Isso é segurança de tipo, assim como o Swift não nos permite misturar inteiros e decimais, exceto que é levado a um nível mais profundo. Sim, todos beat lese numbers ambos são arrays, mas são tipos especializados de arrays: um é um array de strings e o outro é um array de inteiros.
 
 // Você pode ver isso mais claramente quando quiser começar com uma matriz vazia e adicionar itens a ela um por um. Isso é feito com uma sintaxe muito precisa:
 
@@ -73,7 +73,7 @@ print(temperatures[2])
 
 //quero mencionar algumas funcionalidades úteis que vêm com arrays.
 //
-//Primeiro, você pode usar .countpara ler quantos itens estão em uma matriz, assim como fez com as strings:
+//Primeiro, você pode usar .count para ler quantos itens estão em uma matriz, assim como fez com as strings:
 //
 //print(albums.count)
 //Segundo, você pode remover itens de uma matriz usando remove(at:)para remover um item em um índice específico ou removeAll()para remover tudo:
@@ -206,7 +206,7 @@ print(temperatures[2])
 //Se o seu amigo discorda que o Coringa é o arqui-inimigo do Batman, você pode simplesmente reescrever esse valor usando a mesma chave:
 //
 //archEnemies["Batman"] = "Penguin"
-//Por fim, assim como os arrays e os outros tipos de dados que vimos até agora, os dicionários vêm com algumas funcionalidades úteis que você desejará usar no futuro – counte removeAll()ambos existem para dicionários e funcionam exatamente como para arrays.
+//Por fim, assim como os arrays e os outros tipos de dados que vimos até agora, os dicionários vêm com algumas funcionalidades úteis que você desejará usar no futuro – count e removeAll()ambos existem para dicionários e funcionam exatamente como para arrays.
 
 // ------------Como usar conjuntos para pesquisa rápida de dados------------------
 
@@ -245,7 +245,7 @@ print(temperatures[2])
 //
 //Na maioria das vezes, você se verá usando arrays em vez de conjuntos, mas às vezes – apenas às vezes – você descobrirá que um conjunto é exatamente a escolha certa para resolver um problema específico, e fará com que o código lento seja executado em pouco tempo em absoluto.
 //
-//Dica: Ao lado contains()de , você também encontrará countpara ler o número de itens em um conjunto e sorted()retornar uma matriz classificada contendo os itens do conjunto.
+//Dica: Ao lado contains()de , você também encontrará count para ler o número de itens em um conjunto e sorted()retornar uma matriz classificada contendo os itens do conjunto.
 
 //------------------------Como criar e usar enums--------------------------
 //Um enum – abreviação de enumeration – é um conjunto de valores nomeados que podemos criar e usar em nosso código. Eles não têm nenhum significado especial para o Swift, mas são mais eficientes e seguros, então você os usará muito em seu código.
@@ -277,7 +277,7 @@ print(temperatures[2])
 //    case thursday
 //    case friday
 //}
-//Isso chama o novo enum Weekdaye fornece cinco casos para lidar com os cinco dias da semana.
+//Isso chama o novo enum Weekdays fornece cinco casos para lidar com os cinco dias da semana.
 //
 //Agora, em vez de usar strings, usaríamos o enum. Tente isso em seu playground:
 //
@@ -286,7 +286,7 @@ print(temperatures[2])
 //day = Weekday.friday
 //Com essa alteração você não pode acidentalmente usar “Friday” com um espaço extra ali, ou colocar um nome de mês – você deve sempre escolher um dos dias possíveis listados na enumeração. Você verá até o Swift oferecer todas as opções possíveis quando digitar Weekday., porque sabe que você selecionará um dos casos.
 //
-//Swift faz duas coisas que tornam as enumerações um pouco mais fáceis de usar. Primeiro, quando você tem muitos casos em uma enumeração, você pode escrever apenas caseuma vez e, em seguida, separar cada caso com uma vírgula:
+//Swift faz duas coisas que tornam as enumerações um pouco mais fáceis de usar. Primeiro, quando você tem muitos casos em uma enumeração, você pode escrever apenas case uma vez e, em seguida, separar cada caso com uma vírgula:
 //
 //enum Weekday {
 //    case monday, tuesday, wednesday, thursday, friday
@@ -296,7 +296,7 @@ print(temperatures[2])
 //var day = Weekday.monday
 //day = .tuesday
 //day = .friday
-//Swift sabe que .tuesdaydeve se referir Weekday.tuesdayporque daysempre deve ser algum tipo de Weekday.
+//Swift sabe que .tuesday deve se referir Weekday.tuesday porque day sempre deve ser algum tipo de Weekday.
 //
 //Embora não seja visível aqui, um grande benefício dos enums é que o Swift os armazena de forma otimizada – quando dizemos que o Weekday.mondaySwift provavelmente armazenará isso usando um único inteiro como 0, que é muito mais eficiente para armazenar e verificar do que as letras M, o, n, d, a, y.
 

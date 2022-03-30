@@ -28,25 +28,25 @@ import Foundation
 
 //Analisamos alguns tipos de dados até agora, e é importante que você saiba seus nomes para que possa usar a anotação de tipo correta quando necessário.
 
-//Stringcontém texto:
+//String contém texto:
 
 //let playerName: String = "Roy"
-//Intcontém números inteiros:
+//Int contém números inteiros:
 
 //var luckyNumber: Int = 13
-//Doublecontém números decimais:
+//Double contém números decimais:
 
 //let pi: Double = 3.141
-//Boolé verdadeiro ou falso:
+//Bool é verdadeiro ou falso:
 
 //var isAuthenticated: Bool = true
-//Arraycontém muitos valores diferentes, tudo na ordem em que você os adiciona. Isso deve ser especializado, como [String]:
+//Array contém muitos valores diferentes, tudo na ordem em que você os adiciona. Isso deve ser especializado, como [String]:
 
 //var albums: [String] = ["Red", "Fearless"]
-//Dictionarycontém muitos valores diferentes, onde você decide como os dados devem ser acessados. Isso deve ser especializado, como [String: Int]:
+//Dictionary contém muitos valores diferentes, onde você decide como os dados devem ser acessados. Isso deve ser especializado, como [String: Int]:
 
 //var user: [String: String] = ["id": "@twostraws"]
-//Setcontém muitos valores diferentes, mas os armazena em uma ordem otimizada para verificar o que ele contém. Isso deve ser especializado, como Set<String>:
+//Set contém muitos valores diferentes, mas os armazena em uma ordem otimizada para verificar o que ele contém. Isso deve ser especializado, como Set<String>:
 
 //var books: Set<String> = Set(["The Bluest Eye", "Foundation", "Girl, Woman, Other"])
 //Conhecer todos esses tipos é importante para momentos em que você não deseja fornecer valores iniciais. Por exemplo, isso cria uma matriz de strings:
@@ -97,7 +97,7 @@ import Foundation
 //A Swift simplesmente não pode converter "Zero" em um inteiro para nós, mesmo com uma anotação de tipo solicitando, então o código simplesmente não será construído.
 
 
-//----------------------------Exercicios---------------------------------------
+//----------------------------Exercícios---------------------------------------
 
 //Agora que você conheceu arrays, dicionários e conjuntos, quero fazer uma pausa por um momento para lhe dar a chance de resolver um pequeno desafio de codificação. Ele não foi projetado para tropeçar, mas sim para incentivá-lo a parar por um tempo e pensar sobre o que aprendeu.
 //
@@ -105,7 +105,7 @@ import Foundation
 //
 //Vou fornecer algumas dicas abaixo, mas reserve um tempo para pensar em uma solução antes de lê-las. Confie em mim: esquecer o que você aprendeu e depois reaprendê-lo realmente faz com que ele se afunde mais fundo!
 //
-// 1 - Você deve começar criando uma matriz de strings, usando algo comolet albums = ["Red", "Fearless"]
+// 1 - Você deve começar criando uma matriz de strings, usando algo como let albums = ["Red", "Fearless"]
 // 2 - Você pode ler o número de itens em sua matriz usando albums.count.
 // 3 - count também existe para conjuntos.
 // 4 - Os conjuntos podem ser feitos a partir de matrizes usandoSet(someArray)
