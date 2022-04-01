@@ -306,3 +306,131 @@ if transport == .airplane || transport == .helicopter {
 // 4 - Se a primeira condição falhar – se o modo de transporte não for .airplane ou .helicopter– então a segunda condição será executada: o modo de transporte é .bicycle? Em caso afirmativo, "Espero que haja uma ciclovia..." é impresso.
 // 5 - Se também não vamos de bicicleta, verificamos se vamos de carro. Se formos, “Hora de ficar preso no trânsito”. é impresso.
 // 6 - Finalmente, se todas as condições anteriores falharem, o else bloco será executado, e isso significa que estamos indo de scooter.
+
+//------------Como usar instruções de switch para verificar várias condições-------------
+
+// You can use if and else if repeatedly to check conditions as many times as you want, but it gets a bit hard to read. For example, if we had a weather forecast from an enum we could choose which message to print based on a series of conditions, like this:
+
+enum Weather {
+    case sun, rain, wind, snow, unknown
+}
+
+let forecast = Weather.sun
+
+if forecast == .sun {
+    print("It should be a nice day.")
+} else if forecast == .rain {
+    print("Pack an umbrella.")
+} else if forecast == .wind {
+    print("Wear something warm")
+} else if forecast == .rain {
+    print("School is cancelled.")
+} else {
+    print("Our forecast generator is broken!")
+}
+
+// Isso funciona, mas tem problemas:
+
+// Continuamos tendo que escrever forecast, mesmo que estejamos verificando a mesma coisa toda vez.
+// I accidentally checked .rain twice, even though the second check can never be true because the second check is only performed if the first check failed.
+// Eu não verifiquei .snow, então estamos perdendo a funcionalidade.
+// Podemos resolver todos esses três problemas usando uma maneira diferente de verificar as condições chamada switch. Isso também nos permite verificar casos individuais, um por um, mas agora Swift pode ajudar. No caso de uma enum, ela conhece todos os casos possíveis que a enum pode ter, portanto, se perdermos uma ou verificarmos uma duas vezes, ela reclamará.
+
+// So, we can replace all those if and else if checks with this:
+
+switch forecast {
+case .sun:
+    print("It should be a nice day.")
+case .rain:
+    print("Pack an umbrella.")
+case .wind:
+    print("Wear something warm")
+case .snow:
+    print("School is cancelled.")
+case .unknown:
+    print("Our forecast generator is broken!")
+}
+
+// Vamos detalhar isso:
+
+// Começamos com a switch forecast, que diz à Swift que é o valor que queremos verificar.
+// Em seguida, temos uma sequência de instruções de case, cada uma das quais são valores que queremos comparar com a forecast.
+// Each of our cases lists one weather type, and because we’re switching on forecast we don’t need to write Weather.sun, Weather.rain and so on – Swift knows it must be some kind of Weather.
+// Após cada caso, escrevemos dois pontos para marcar o início do código a ser executado se esse caso for correspondido.
+// Usamos uma chave de fechamento para finalizar a instrução do switch.
+// If you try changing .snow for .rain, you’ll see Swift complains loudly: once that we’ve checked .rain twice, and again that our switch statement is not exhaustive – that it doesn’t handle all possible cases.
+
+// If you’ve ever used other programming languages, you might have noticed that Swift’s switch statement is different in two places:
+
+// All switch statements must be exhaustive, meaning that all possible values must be handled in there so you can’t leave one off by accident.
+// Swift executará o primeiro caso que corresponder à condição que você está verificando, mas não mais. Outras linguagens geralmente continuam executando outro código de todos os casos subsequentes, o que geralmente é totalmente a coisa padrão errada a fazer.
+// Embora ambas as afirmações sejam verdadeiras, Swift nos dá um pouco mais de controle se precisarmos.
+
+// First, yes all switch statements must be exhaustive: you must ensure all possible values are covered. If you’re switching on a string then clearly it’s not possible to make an exhaustive check of all possible strings because there is an infinite number, so instead we need to provide a default case – code to run if none of the other cases match.
+
+// Por exemplo, poderíamos alternar uma string contendo um nome de lugar:
+
+let place = "Metropolis"
+
+switch place {
+case "Gotham":
+    print("You're Batman!")
+case "Mega-City One":
+    print("You're Judge Dredd!")
+case "Wakanda":
+    print("You're Black Panther!")
+default:
+    print("Who are you?")
+}
+
+// That default: at the end is the default case, which will be run if all cases have failed to match.
+
+// Remember: Swift checks its cases in order and runs the first one that matches. If you place default before any other case, that case is useless because it will never be matched and Swift will refuse to build your code.
+
+// Em segundo lugar, se você quiser explicitamente que Swift continue executando casos subsequentes, usefallthrough. Isso não é comumente usado, mas às vezes - apenas às vezes - pode ajudá-lo a evitar a repetição do trabalho.
+
+// Por exemplo, há uma famosa música de Natal chamada The Twelve Days of Christmas e, à medida que a música continua, mais e mais presentes são amassados em uma pessoa infeliz que, por volta do sexto dia, tem uma casa bastante cheia.
+
+// Poderíamos fazer uma aproximação simples dessa música usando fallthrough. Primeiro, veja como o código ficaria sem fallthrough:
+
+let day = 5
+print("My true love gave to me…")
+
+switch day {
+case 5:
+    print("5 golden rings")
+case 4:
+    print("4 calling birds")
+case 3:
+    print("3 French hens")
+case 2:
+    print("2 turtle doves")
+default:
+    print("A partridge in a pear tree")
+}
+
+// Isso imprimirá “5 anéis de ouro”, o que não está certo. No dia 1, apenas "Uma perdiz em uma pereira" deve ser impressa, no dia 2 deve ser "2 pombas tartaruga", depois "Uma perdiz em uma pereira", no dia 3 deve ser "3 galinhas francesas", "2 pombas tartaruga" e... bem, você entendeu a ideia.
+
+// We can use fallthrough to get exactly that behavior:
+
+let day = 5
+print("My true love gave to me…")
+
+switch day {
+case 5:
+    print("5 golden rings")
+    fallthrough
+case 4:
+    print("4 calling birds")
+    fallthrough
+case 3:
+    print("3 French hens")
+    fallthrough
+case 2:
+    print("2 turtle doves")
+    fallthrough
+default:
+    print("A partridge in a pear tree")
+}
+
+// That will match the first case and print “5 golden rings”, but the fallthrough line means case 4 will execute and print “4 calling birds”, which in turn uses fallthrough again so that “3 French hens” is printed, and so on. It’s not a perfect match to the song, but at least you can see the functionality in action!
