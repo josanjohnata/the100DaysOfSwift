@@ -434,3 +434,85 @@ default:
 }
 
 // That will match the first case and print “5 golden rings”, but the fallthrough line means case 4 will execute and print “4 calling birds”, which in turn uses fallthrough again so that “3 French hens” is printed, and so on. It’s not a perfect match to the song, but at least you can see the functionality in action!
+
+//------------Como usar o operador condicional ternário para testes rápidos--------------
+
+// Há uma última maneira de verificar as condições em Swift, e quando você vê-lo, é provável que você se pergunte quando é útil. Para ser justo, por muito tempo eu raramente usei essa abordagem, mas como você verá mais tarde, é muito importante com o SwiftUI.
+
+// This option is called the ternary conditional operator. To understand why it has that name, you first need to know that +, -, ==, and so on are all called binary operators because they work with two pieces of input: 2 + 5, for example, works with 2 and 5.
+
+// Os operadores ternários trabalham com três entradas e, de fato, como o operador condicional ternário é o único operador ternário em Swift, muitas vezes você o ouvirá chamado apenas de "operador ternário".
+
+// De qualquer forma, chega de nomes: o que isso realmente faz? Bem, o operador ternário nos permite verificar uma condição e retornar um dos dois valores: algo se a condição for verdadeira e algo se for falsa.
+
+// For example, we could create a constant called age that stores someone’s age, then create a second constant called canVote that will store whether that person is able to vote or not:
+
+let age = 18
+let canVote = age >= 18 ? "Yes" : "No"
+
+// When that code runs, canVote will be set to “Yes” because age is set to 18.
+
+// As you can see, the ternary operator is split into three parts: a check (age >= 18), something for when the condition is true (“Yes”), and something for when the condition is false (“No”). That makes it exactly like a regular if and else block, in the same order.
+
+// Se ajudar, Scott Michaud sugeriu um mnemônico útil: WTF. Significa "o que, verdadeiro, falso" e corresponde à ordem do nosso código:
+
+// Qual é a nossa condição? Bem, é age >= 18.
+// O que fazer quando a condição é verdadeira? Envie de volta "Sim", para que possa ser armazenado incanVote.
+// E se a condição for falsa? Envie de volta "Não".
+// Vejamos alguns outros exemplos, comece com um fácil que leia uma hora no formato de 24 horas e imprima uma das duas mensagens:
+
+let hour = 23
+print(hour < 12 ? "It's before noon" : "It's after noon")
+
+// Observe como isso não atribui o resultado em nenhum lugar - o caso verdadeiro ou falso é impresso dependendo do valor da hour.
+
+// Or here’s one that reads the count of an array as part of its condition, then sends back one of two strings:
+
+let names = ["Jayne", "Kaylee", "Mal"]
+let crewCount = names.isEmpty ? "No one" : "\(names.count) people"
+print(crewCount)
+
+// It gets a little hard to read when your condition use == to check for equality, as you can see here:
+
+enum Theme {
+    case light, dark
+}
+
+let theme = Theme.dark
+
+let background = theme == .dark ? "black" : "white"
+print(background)
+
+// The = theme == part is usually the bit folks find hard to read, but remember to break it down:
+
+//O quê?theme == .dark
+//Verdadeiro: “preto”
+//Falso: “branco”
+//So if theme is equal to .dark return “Black”, otherwise return “White”, then assign that to background.
+
+//Now, you might be wondering why the ternary operator is useful, particularly when we have regular if/else conditions available to us. I realize it’s not a great answer, but you’ll have to trust me on this: there are some times, particularly with SwiftUI, when we have no choice and must use a ternary.
+
+//Você pode ver mais ou menos qual é o problema com o nosso código para verificar as horas:
+
+let hour = 23
+print(hour < 12 ? "It's before noon" : "It's after noon")
+
+// If we wanted to write that out using if and else we’d either need to write this invalid code:
+
+print(
+    if hour < 12 {
+        "It's before noon"
+    } else {
+        "It's after noon"
+    }
+)
+
+// Or run print() twice, like this:
+
+if hour < 12 {
+    print("It's before noon")
+} else {
+    print("It's after noon")
+}
+
+// Esse segundo funciona bem aqui, mas se torna quase impossível no SwiftUI, como você verá muito mais tarde. Então, mesmo que você possa olhar para o operador ternário e se perguntar por que você o usaria, confie em mim: isso importa!
