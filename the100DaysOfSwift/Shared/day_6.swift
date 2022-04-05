@@ -121,3 +121,51 @@ print(names[1...3])
 print(names[1...])
 
 // Portanto, os intervalos são ótimos para contar valores específicos, mas também são úteis para ler grupos de itens de matrizes.
+
+//------------Como usar um loop while para repetir o trabalho?---------
+
+// Swift tem um segundo tipo de loop chamado while: forneça uma condição e um loop while executará continuamente o corpo do loop até que a condição seja falsa.
+
+// Embora você ainda veja loops while de tempos em tempos, eles não são tão comuns quanto os loops for. Como resultado, eu quero cobri-los para que você saiba que eles existem, mas não vamos nos debruçar sobre eles por muito tempo, ok?
+
+// Aqui está um loop while básico para começarmos:
+
+var countdown = 10
+
+while countdown > 0 {
+    print("\(countdown)…")
+    countdown -= 1
+}
+
+print("Blast off!")
+
+// Isso cria um contador inteiro começando em 10 e, em seguida, inicia um loop while com a condição countdown > 0. Assim, o corpo do loop – imprimindo o número e subtraindo 1 – será executado continuamente até que countdown seja igual ou inferior a 0, ponto em que o loop terminará e a mensagem final será impressa.
+
+// loops while são realmente úteis quando você simplesmente não sabe quantas vezes o loop vai dar a volta. Para demonstrar isso, quero apresentar a você uma funcionalidade realmente útil que Int e Double ambas têm: random(in:). Dê a isso um intervalo de números para trabalhar, e ele enviará de volta um número aleatório Int ou Double em algum lugar dentro desse intervalo.
+
+// Por exemplo, isso cria um novo inteiro entre 1 e 1000
+
+let id = Int.random(in: 1...1000)
+
+// E isso cria um decimal aleatório entre 0 e 1:
+
+let amount = Double.random(in: 0...1)
+
+// Podemos usar essa funcionalidade com um loop while para rolar alguns dados virtuais de 20 lados repetidas vezes, terminando o loop apenas quando um 20 é lançado - um acerto crítico para todos os jogadores de Dungeons & Dragons por aí.
+
+Aqui está o código para fazer isso acontecer:
+
+// create an integer to store our roll
+var roll = 0
+
+// carry on looping until we reach 20
+while roll != 20 {
+    // roll a new dice and print what it was
+    roll = Int.random(in: 1...20)
+    print("I rolled a \(roll)")
+}
+
+// if we're here it means the loop ended – we got a 20!    
+print("Critical hit!")
+
+// Você se verá usando loops for e while em seu próprio código: loops for são mais comuns quando você tem uma quantidade finita de dados para percorrer, como um intervalo ou uma matriz, mas os loops while são realmente úteis quando você precisa de uma condição personalizada.
