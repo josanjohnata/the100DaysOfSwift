@@ -95,3 +95,29 @@ for _ in 1...5 {
 }
 
 print(lyric)
+
+//------------Por que o Swift tem dois operadores de alcance?---------
+
+// Quando pensamos em faixas de valores, o inglês é bastante confuso. Se eu disser “me dê os números de vendas até ontem”, isso significa incluir ontem ou excluir ontem? Ambos são úteis por si só, então Swift nos dá uma maneira de representar ambos: ..< é o intervalo semi-aberto que especifica “até, mas excluindo” e ... é o operador de intervalo fechado que especifica “até e incluindo”.
+
+// Para facilitar a distinção ao falar, Swift usa regularmente uma linguagem muito específica: “1 a 5” significa 1, 2, 3 e 4, mas “1 até completamente 5” significa 1, 2, 3, 4 e 5. Se você lembre-se, os arrays do Swift começam no índice 0, o que significa que um array contendo três itens tem itens nos índices 0, 1 e 2 – um caso de uso perfeito para o operador de intervalo semi-aberto.
+
+// As coisas ficam mais interessantes quando você quer apenas parte de um intervalo, como “qualquer coisa de 0 para cima” ou “índice 5 até o final do array”. Veja, eles são bastante úteis na programação, então o Swift os torna mais fáceis de criar, permitindo que especifiquemos apenas parte de um intervalo.
+
+// Por exemplo, se tivéssemos um array de nomes como este:
+
+let names = ["Piper", "Alex", "Suzanne", "Gloria"]
+
+// Poderíamos ler um nome individual como este:
+
+print(names[0])
+
+// Com intervalos, também podemos imprimir um intervalo de valores como este:
+
+print(names[1...3])
+
+// No entanto, isso traz um pequeno risco: se nosso array não contiver pelo menos quatro itens, 1...3 ele falhará. Felizmente, podemos usar um intervalo unilateral para dizer “me dê 1 até o final do array”, assim:
+
+print(names[1...])
+
+// Portanto, os intervalos são ótimos para contar valores específicos, mas também são úteis para ler grupos de itens de matrizes.
