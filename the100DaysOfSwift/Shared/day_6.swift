@@ -218,3 +218,19 @@ print(multiples)
 // 6 - Imprima a matriz resultante.
 
 // Portanto, use continue quando quiser pular o restante da iteração de loop atual e use break quando quiser pular todas as iterações de loop restantes.
+
+//---------------Resumo: Condições e loops------------------------
+
+// Cobrimos muito sobre condições e loops nos capítulos anteriores, então vamos recapitular:
+
+// 1 - Usamos declarações if para verificar se uma condição é verdadeira. Você pode passar em qualquer condição que desejar, mas no final das contas deve se resumir a um booleano.
+// 2 - Se desejar, você pode adicionar um bloco de else e/ou vários blocos else if para verificar outras condições. Swift os executa em ordem.
+// 3 - Você pode combinar condições usando ||(ou), o que significa que toda a condição é verdadeira se uma das subcondições for verdadeira, ou &&(e), o que significa que toda a condição é verdadeira se ambas as subcondições forem verdadeiras.
+// 4 - Se você estiver repetindo muito os mesmos tipos de cheque, poderá usar uma instrução swift. Estes devem sempre ser exaustivos, o que pode significar adicionar um caso padrão.
+// 5 - Se um dos seus casos switch usar fallthrough, significa que o Swift executará o seguinte caso depois. Isso não é usado comumente.
+// 6 - O operador condicional ternário permite verificar WTF: What, True, False. Embora seja um pouco difícil de ler no início, você verá que isso é muito usado no SwiftUI.
+// 7 - Loops ofr nos permitem percorrer arrays, conjuntos, dicionários e intervalos. Você pode atribuir itens a uma variável de loop e usá-la dentro do loop, ou pode usar sublinhado, _, para ignorar a variável de loop.
+// 8 - Loops while nos permitem criar loops personalizados que continuarão em execução até que uma condição se torne falsa.
+// 9 - Podemos pular alguns ou todos os itens de loop usando continue ou break respectivamente.
+
+// Essa é outra grande quantidade de material novo, mas com condições e loops você já sabe o suficiente para construir um software realmente útil – experimente!
