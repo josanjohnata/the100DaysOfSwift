@@ -43,3 +43,17 @@ for i in 1...100{
         print(i)
     }
 }
+
+// ou
+
+for j in 1...100{
+    if j % 3 == 0 && j % 5 == 0{
+        print("FizzBuzz")
+    } else if j % 3 == 0{
+        print("Fizz")
+    } else if j % 5 == 0{
+        print("Buzz")
+    } else {
+        print(j)
+    }
+}
