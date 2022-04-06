@@ -169,3 +169,52 @@ while roll != 20 {
 print("Critical hit!")
 
 // Você se verá usando loops for e while em seu próprio código: loops for são mais comuns quando você tem uma quantidade finita de dados para percorrer, como um intervalo ou uma matriz, mas os loops while são realmente úteis quando você precisa de uma condição personalizada.
+
+//------------Como pular itens de loop com break e continue---------
+
+// O Swift nos dá duas maneiras de pular um ou mais itens em um loop: continue ignora a iteração do loop atual e break ignora todas as iterações restantes. Como loops while, eles são usados ​​às vezes , mas na prática muito menos do que você imagina.
+
+// Vamos analisá-los individualmente, começando com continue. Quando você está fazendo um loop em uma matriz de dados, o Swift retira um item da matriz e executa o corpo do loop usando-o. Se você chamar continue dentro desse corpo de loop, o Swift parará imediatamente de executar a iteração do loop atual e pulará para o próximo item do loop, onde continuará normalmente. Isso é comumente usado perto do início de loops, onde você elimina variáveis ​​de loop que não passam em um teste de sua escolha.
+
+// Aqui está um exemplo:
+
+let filenames = ["me.jpg", "work.txt", "sophie.jpg", "logo.psd"]
+
+for filename in filenames {
+    if filename.hasSuffix(".jpg") == false {
+        continue
+    }
+
+    print("Found picture: \(filename)")
+}
+
+// Isso cria um array de strings de nome de arquivo, então faz um loop sobre cada um e verifica se tem o sufixo “.jpg” – que é uma imagem. continue é usado com todos os nomes de arquivo que falham nesse teste, para que o restante do corpo do loop seja ignorado.
+
+// Quanto a break, isso sai de um loop imediatamente e pula todas as iterações restantes. Para demonstrar isso, poderíamos escrever algum código para calcular 10 múltiplos comuns para dois números:
+
+let number1 = 4
+let number2 = 14
+var multiples = [Int]()
+
+for i in 1...100_000 {
+    if i.isMultiple(of: number1) && i.isMultiple(of: number2) {
+        multiples.append(i)
+
+        if multiples.count == 10 {
+            break
+        }
+    }
+}
+
+print(multiples)
+
+// Isso faz muito:
+
+// 1 - Crie duas constantes para armazenar dois números.
+// 2 - Crie uma variável de matriz inteira que armazenará múltiplos comuns de nossos dois números.
+// 3 - Conte de 1 a 100.000, atribuindo cada variável de loop a i.
+// 4 - Se i for um múltiplo do primeiro e do segundo número, anexe-o à matriz de inteiros.
+// 5 - Quando atingirmos 10 múltiplos, chame break para sair do loop.
+// 6 - Imprima a matriz resultante.
+
+// Portanto, use continue quando quiser pular o restante da iteração de loop atual e use break quando quiser pular todas as iterações de loop restantes.
