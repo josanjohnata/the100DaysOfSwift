@@ -121,3 +121,101 @@ func printTimesTables(number: Int, end: Int) {}
 printTimesTables(end: 20, number: 5)
 
 // Dica: Todos os dados que você cria dentro de uma função são destruídos automaticamente quando a função é concluída.
+
+//----------------Como retornar valores de funções----------------
+
+// Você viu como criar funções e como adicionar parâmetros a elas, mas as funções geralmente também enviam dados de volta – elas realizam alguns cálculos e retornam o resultado desse trabalho de volta ao site da chamada.
+
+// O Swift tem muitas dessas funções integradas e há dezenas de milhares mais nos frameworks da Apple. Por exemplo, nosso playground sempre esteve import Cocoa no topo, e isso inclui uma variedade de funções matemáticas, como sqrt() calcular a raiz quadrada de um número.
+
+// A função sqrt() aceita um parâmetro, que é o número do qual queremos calcular a raiz quadrada, e ela irá em frente e fará o trabalho e então enviará de volta a raiz quadrada.
+
+// Por exemplo, poderíamos escrever isso:
+
+let root = sqrt(169)
+print(root)
+
+// Se você deseja retornar seu próprio valor de uma função, você precisa fazer duas coisas:
+
+// 1 - Escreva uma seta e depois um tipo de dados antes da chave de abertura da sua função, que informa ao Swift que tipo de dados serão enviados de volta.
+// 2 - Use a palavra-chave return para enviar de volta seus dados.
+
+// Por exemplo, talvez você queira rolar um dado em várias partes do seu programa, mas em vez de sempre forçar o lançamento de dados a usar um dado de 6 lados, você pode transformá-lo em uma função:
+
+func rollDice() -> Int {
+    return Int.random(in: 1...6)
+}
+
+let result = rollDice()
+print(result)
+
+// Então, isso diz que a função deve retornar um inteiro e o valor real é enviado de volta com a palavra-chave return.
+
+// Usando esta abordagem, você pode chamar rollDice() em muitos lugares em seu programa, e todos eles usarão um dado de 6 faces. Mas se no futuro você decidir usar um dado de 20 lados, você só precisa alterar essa função para ter o resto do seu programa atualizado.
+
+// Importante: Quando você diz que sua função retornará um Int, o Swift garantirá que ela sempre retorne um Int– você não pode esquecer de devolver um valor, pois seu código não será compilado.
+
+// Vamos tentar um exemplo mais complexo: duas strings contêm as mesmas letras, independentemente de sua ordem? Essa função deve aceitar dois parâmetros de string e retornar true se suas letras forem iguais – portanto, “abc” e “cab” devem retornar true porque ambos contêm um “a”, um “b” e um “c”.
+
+// Na verdade, você já sabe o suficiente para resolver esse problema sozinho, mas já aprendeu tanto que provavelmente esqueceu a única coisa que torna essa tarefa tão fácil: se você chamar sorted()qualquer string, receberá uma nova string de volta com todas as letras em ordem alfabética. Portanto, se você fizer isso para ambas as strings, poderá == compará-las para ver se suas letras são as mesmas.
+
+// Vá em frente e tente escrever a função você mesmo. Novamente, não se preocupe se você se esforçar – é tudo muito novo para você, e lutar para lembrar de novos conhecimentos faz parte do processo de aprendizado. Mostrarei a solução em um momento, mas tente você mesmo primeiro.
+
+// Ainda aqui? Ok, aqui está um exemplo de solução:
+
+func areLettersIdentical(string1: String, string2: String) -> Bool {
+    let first = string1.sorted()
+    let second = string2.sorted()
+    return first == second
+}
+
+// Vamos separar isso:
+
+// 1 - Ele cria uma nova função chamada areLettersIdentical().
+// 2 - A função aceita dois parâmetros de string string1 e string2.
+// 3 - A função diz que retorna a Bool, então em algum momento devemos sempre retornar true ou false.
+// 4 - Dentro do corpo da função, classificamos ambas as strings e usamos == para comparar as strings - se forem iguais, retornará true, caso contrário, retornará false.
+
+// Esse código classifica string1 e string2, atribuindo seus valores classificados a novas constantes first e second. No entanto, isso não é necessário - podemos pular essas constantes temporárias e apenas comparar os resultados sorted()diretamente, assim:
+
+func areLettersIdentical(string1: String, string2: String) -> Bool {
+    return string1.sorted() == string2.sorted()
+}
+
+// Isso é menos código, mas podemos fazer ainda melhor. Veja bem, nós dissemos ao Swift que esta função deve retornar um Boolean, e porque há apenas uma linha de código na função Swift sabe que é aquela que deve retornar dados. Por isso, quando uma função possui apenas uma linha de código, podemos remover a palavra-chave return completamente, assim:
+
+func areLettersIdentical(string1: String, string2: String) -> Bool {
+    string1.sorted() == string2.sorted()
+}
+
+// Podemos voltar e fazer o mesmo para a função rollDice() também:
+
+func rollDice() -> Int {
+    Int.random(in: 1...6)
+}
+
+// Lembre-se, isso só funciona quando sua função contém uma única linha de código e, em particular, essa linha de código deve realmente retornar os dados que você prometeu retornar.
+
+// Vamos tentar um terceiro exemplo. Você se lembra do teorema de Pitágoras da escola? Ele afirma que, se você tiver um triângulo com um ângulo reto dentro, poderá calcular o comprimento da hipotenusa elevando ao quadrado ambos os outros lados, somando-os e calculando a raiz quadrada do resultado
+
+// Você já aprendeu a usar sqrt(), então podemos construir uma função pythagoras() que aceita dois números decimais e retorna outro:
+
+func pythagoras(a: Double, b: Double) -> Double {
+    let input = a * a + b * b
+    let root = sqrt(input)
+    return root
+}
+
+let c = pythagoras(a: 3, b: 4)
+print(c)
+
+// Então, essa é uma função chamada pythagoras(), que aceita dois parâmetros Double e retorna outro Double. Dentro dele, quadra a e b, soma-os, depois passa isso sqrt()e envia de volta o resultado.
+
+// Essa função também pode ser reduzida a uma única linha e ter sua palavra-chave return removida – experimente. Como de costume, mostrarei minha solução depois, mas é importante que você tente.
+
+// Ainda aqui? Ok, aqui está minha solução:
+
+func pythagoras(a: Double, b: Double) -> Double {
+    sqrt(a * a + b * b)
+}
+// Há uma última coisa que quero mencionar antes de prosseguirmos: se sua função não retornar um valor, você ainda pode usar return por si só para forçar a saída da função mais cedo. Por exemplo, talvez você tenha uma verificação de que a entrada corresponde ao que você esperava e, se não, você deseja sair da função imediatamente antes de continuar.
