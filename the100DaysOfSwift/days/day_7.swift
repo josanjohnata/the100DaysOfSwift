@@ -219,3 +219,99 @@ func pythagoras(a: Double, b: Double) -> Double {
     sqrt(a * a + b * b)
 }
 // Há uma última coisa que quero mencionar antes de prosseguirmos: se sua função não retornar um valor, você ainda pode usar return por si só para forçar a saída da função mais cedo. Por exemplo, talvez você tenha uma verificação de que a entrada corresponde ao que você esperava e, se não, você deseja sair da função imediatamente antes de continuar.
+
+//---------Quando a palavra-chave return não é necessária em uma função Swift?---------
+
+// Usamos a return palavra-chave para enviar de volta valores de funções em Swift, mas há um caso específico em que ela não é necessária: quando nossa função contém apenas uma única expressão.
+
+// Agora, “expressão” não é uma palavra que eu uso com frequência, mas é importante entender aqui. Quando escrevemos programas, fazemos coisas assim:
+
+// 5 + 8
+// Ou isto:
+
+// greet("Paul")
+
+// Essas linhas de código são resolvidas para um único valor: 5 + 8 são resolvidos para 13 e greet("Paul")podem retornar uma string “Oi, Paul!”
+
+// Mesmo alguns códigos mais longos serão resolvidos para um único valor. Por exemplo, se tivéssemos três constantes booleanas como esta:
+
+// let isAdmin = true 
+// let isOwner = false
+// let isEditingEnabled = false
+// Então esta linha de código resolveria para um único valor:
+
+// isOwner == true && isEditingEnabled || isAdmin == true
+// Isso se tornaria “verdadeiro”, porque mesmo sendo isOwnerfalso, isAdminé verdadeiro, então toda a expressão se torna verdadeira.
+
+// Assim, muitos códigos que escrevemos podem ser resolvidos em um único valor. Mas também há muito código que não pode ser resolvido para um único valor. Por exemplo, qual é o valor aqui:
+
+// let name = "Otis"
+
+// Sim, isso cria uma constante, mas não se torna um valor por si só – não poderíamos escrever return let name = "Otis".
+
+// Da mesma forma, escrevemos condições como esta:
+
+if name == "Maeve" {
+    print("Hello, Maeve!")
+}
+
+// Isso também não pode se tornar um valor único, porque tem uma condição lá.
+
+// Agora, tudo isso importa porque essas divisões têm nomes: quando nosso código pode ser resumido a um único valor, como true, false, “Hello” ou 19, chamamos isso de expression . Expressões são coisas que podem ser atribuídas a uma variável ou impressas usando print(). Por outro lado, quando estamos executando ações como criar variáveis, iniciar um loop ou verificar uma condição, chamamos isso de instrução .
+
+// Tudo isso importa porque o Swift nos permite pular o uso da palavra- returnchave quando temos apenas uma expressão em nossa função. Então, essas duas funções fazem a mesma coisa:
+
+func doMath() -> Int {
+    return 5 + 5
+}
+
+func doMoreMath() -> Int {
+    5 + 5
+}
+
+// Lembre-se, a expressão dentro pode ser tão longa quanto você quiser, mas não pode conter nenhuma instrução – sem loops, sem condições, sem novas variáveis ​​e assim por diante.
+
+// Agora, você pode pensar que isso é inútil e sempre usaria a palavra- returnchave. No entanto, essa funcionalidade é usada muito comumente com o SwiftUI, então vale a pena ter em mente.
+
+// Antes de terminarmos, quero mencionar mais uma coisa. Você viu como podemos usar operadores como +, &&e ||em nossas expressões, porque eles ainda resolvem para um único valor. Bem, o operador ternário também funciona aqui e, na verdade, este é o principal caso de uso para ele: quando você deseja ter uma única expressão, mas não deseja ter um arquivo if.
+
+// Para demonstrar isso, considere a seguinte função:
+
+func greet(name: String) -> String {
+    if name == "Taylor Swift" {
+        return "Oh wow!"
+    } else {
+        return "Hello, \(name)"
+    }
+}
+
+// Se quiséssemos remover as declarações de lá, nãoreturn poderíamos escrever isso:
+
+func greet(name: String) -> String {
+    if name == "Taylor Swift" {
+        "Oh wow!"
+    } else {
+        "Hello, \(name)"
+    }
+}
+
+// Isso não é permitido, porque temos declarações reais lá – ife else.
+
+// No entanto, poderíamos usar o operador ternário assim:
+
+func greet(name: String) -> String {
+    name == "Taylor Swift" ? "Oh wow!" : "Hello, \(name)"
+}
+
+// Essa é uma única expressão. Se namefor igual a “Taylor Swift”, resolverá algo assim:
+
+// Swift irá verificar se name é Taylor Swift ou não.
+// É, então name == "Taylor Swift"é verdade.
+// O operador ternário perceberá que sua condição agora é verdadeira, então ele escolherá “Oh wow” em vez de “Hello, (name)”.
+// Então, quando essa função é executada, efetivamente se resume a isso:
+
+func greet(name: String) -> String {
+    "Oh wow!"
+}
+
+// Deixar-nos colocar a funcionalidade condicional em uma única linha de código é onde o operador ternário realmente brilha. E, como o SwiftUI usa bastante funções de expressão única, isso significa que os operadores ternários também são bastante usados ​​no SwiftUI.
