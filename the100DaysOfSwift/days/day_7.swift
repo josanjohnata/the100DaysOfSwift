@@ -424,3 +424,113 @@ print("Name: \(firstName) \(lastName)")
 
 let (firstName, _) = getUser()
 print("Name: \(firstName)")
+
+//---------------Como personalizar rótulos de parâmetros----------------------
+
+// Você viu como os desenvolvedores Swift gostam de nomear seus parâmetros de função, porque torna mais fácil lembrar o que eles fazem quando a função é chamada. Por exemplo, poderíamos escrever uma função para rolar um dado um certo número de vezes, usando parâmetros para controlar o número de lados do dado e o número de lançamentos:
+
+func rollDice(sides: Int, count: Int) -> [Int] {
+    // Start with an empty array
+    var rolls = [Int]()
+
+    // Roll as many dice as needed
+    for _ in 1...count {
+        // Add each result to our array
+        let roll = Int.random(in: 1...sides)
+        rolls.append(roll)
+    }
+
+    // Send back all the rolls
+    return rolls
+}
+
+let rolls = rollDice(sides: 6, count: 4)
+
+// Mesmo se você voltar a este código seis meses depois, sinto-me confiante de que rollDice(sides: 6, count: 4)é bastante autoexplicativo.
+
+// Esse método de nomear parâmetros para uso externo é tão importante para o Swift que ele realmente usa os nomes quando se trata de descobrir qual método chamar. Isso é bem diferente de muitas outras linguagens, mas isso é perfeitamente válido em Swift:
+
+func hireEmployee(name: String) { }
+func hireEmployee(title: String) { }
+func hireEmployee(location: String) { }
+
+// Sim, essas são todas as funções chamadas hireEmployee(), mas quando você as chama, o Swift sabe qual delas você quer dizer com base nos nomes dos parâmetros que você fornece. Para distinguir entre as várias opções, é muito comum ver a documentação referindo-se a cada função incluindo seus parâmetros, como este: hireEmployee(name:) ou hireEmployee(title:).
+
+// Às vezes, porém, esses nomes de parâmetros são menos úteis, e há duas maneiras que eu quero olhar.
+
+// Primeiro, pense na função hasPrefix() que você aprendeu anteriormente:
+
+let lyric = "I see a red door and I want it painted black"
+print(lyric.hasPrefix("I see"))
+
+// Quando chamamos hasPrefix(), passamos o prefixo para verificar diretamente – não dizemos hasPrefix(string:) ou, pior, hasPrefix(prefix:). Por quê?
+
+// Bem, quando estamos definindo os parâmetros para uma função, podemos adicionar dois nomes: um para uso onde a função é chamada e outro para uso dentro da própria função. hasPrefix() usa isso para especificar _ como o nome externo para seu parâmetro, que é a maneira do Swift dizer “ignore isso” e faz com que não haja rótulo externo para esse parâmetro.
+
+// Podemos usar a mesma técnica em nossas próprias funções, se você achar que lê melhor. Por exemplo, anteriormente tínhamos esta função:
+
+func isUppercase(string: String) -> Bool {
+    string == string.uppercased()
+}
+
+let string = "HELLO, WORLD"
+let result = isUppercase(string: string)
+
+// Você pode olhar para isso e achar que está exatamente certo, mas também pode olhar string: string e ver uma duplicação irritante. Afinal, o que mais vamos passar lá além de uma string?
+
+// Se adicionarmos um sublinhado antes do nome do parâmetro, podemos remover o rótulo do parâmetro externo da seguinte forma:
+
+func isUppercase(_ string: String) -> Bool {
+    string == string.uppercased()
+}
+
+let string = "HELLO, WORLD"
+let result = isUppercase(string)
+
+// Isso é muito usado no Swift, como append() para adicionar itens a um array, ou contains() para verificar se um item está dentro de um array – em ambos os lugares é bastante evidente qual é o parâmetro sem ter um rótulo também.
+
+// O segundo problema com nomes de parâmetros externos é quando eles não estão certos – você quer tê-los, então _não é uma boa ideia, mas eles simplesmente não são lidos naturalmente no site de chamada da função.
+
+// Como exemplo, aqui está outra função que vimos anteriormente:
+
+func printTimesTables(number: Int) {
+    for i in 1...12 {
+        print("\(i) x \(number) is \(i * number)")
+    }
+}
+
+printTimesTables(number: 5)
+
+// Esse código é Swift válido e podemos deixá-lo como está. Mas o site da chamada não lê bem: printTimesTables(number: 5). Seria muito melhor assim:
+
+func printTimesTables(for: Int) {
+    for i in 1...12 {
+        print("\(i) x \(for) is \(i * for)")
+    }
+}
+
+printTimesTables(for: 5)
+
+// Isso é muito melhor no site da chamada – você pode dizer literalmente “imprimir tabela de tempos para 5” em voz alta, e faz sentido. Mas agora temos Swift inválido: embora for seja permitido e leia muito bem no site da chamada, não é permitido dentro da função.
+
+// Você já viu como podemos colocar _ antes do nome do parâmetro para que não precisemos escrever um nome de parâmetro externo. Bem, a outra opção é escrever um segundo nome lá: um para usar externamente e outro para usar internamente.
+
+// Veja como isso se parece:
+
+func printTimesTables(for number: Int) {
+    for i in 1...12 {
+        print("\(i) x \(number) is \(i * number)")
+    }
+}
+
+printTimesTables(for: 5)
+
+// Há três coisas lá que você precisa olhar de perto:
+
+// 1 - Escrevemos for number: Int: o nome externo é for, o nome interno é number, e é do tipo Int.
+// 2 - Quando chamamos a função, usamos o nome externo para o parâmetro: printTimesTables(for: 5).
+// 3 - Dentro da função usamos o nome interno para o parâmetro: print("\(i) x \(number) is \(i * number)").
+
+// Portanto, o Swift nos dá duas maneiras importantes de controlar os nomes dos parâmetros: podemos usar _ para o nome do parâmetro externo para que ele não seja usado, ou adicionar um segundo nome para que tenhamos nomes de parâmetros externos e internos.
+
+// Dica: Mencionei anteriormente que tecnicamente os valores que você passa para uma função são chamados de “argumentos”, e os valores que você recebe dentro da função são chamados de parâmetros . É aqui que as coisas ficam um pouco confusas, porque agora temos rótulos de argumentos e nomes de parâmetros lado a lado, ambos na definição da função. Como eu disse, usarei o termo “parâmetro” para ambos, e quando a distinção for importante, você verá que faço a distinção entre eles usando “nome do parâmetro externo” e “nome do parâmetro interno”.
