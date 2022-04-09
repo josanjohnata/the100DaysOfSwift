@@ -315,3 +315,112 @@ func greet(name: String) -> String {
 }
 
 // Deixar-nos colocar a funcionalidade condicional em uma única linha de código é onde o operador ternário realmente brilha. E, como o SwiftUI usa bastante funções de expressão única, isso significa que os operadores ternários também são bastante usados ​​no SwiftUI.
+
+//--------------Como retornar vários valores de funções----------------
+
+// Quando você deseja retornar um único valor de uma função, você escreve uma seta e um tipo de dados antes da chave de abertura da sua função, assim:
+
+func isUppercase(string: String) -> Bool {
+    string == string.uppercased()
+}
+
+// Isso compara uma string com a versão em maiúsculas de si mesma. Se a string já estiver totalmente em maiúsculas, nada será alterado e as duas strings serão idênticas, caso contrário, serão diferentes e enviarão de volta false.
+
+// Se você deseja retornar dois ou mais valores de uma função, você pode usar uma matriz. Por exemplo, aqui está um que envia de volta os detalhes de um usuário:
+
+func getUser() -> [String] {
+    ["Taylor", "Swift"]
+}
+
+let user = getUser()
+print("Name: \(user[0]) \(user[1])") 
+
+// Isso é problemático, porque é difícil lembrar o que user[0] e user[1] são, e se alguma vez ajustarmos os dados nessa matriz user[0] e user[1], podemos acabar sendo outra coisa ou talvez não existindo.
+
+// Poderíamos usar um dicionário em vez disso, mas isso tem seus próprios problemas:
+
+func getUser() -> [String: String] {
+    [
+        "firstName": "Taylor",
+        "lastName": "Swift"
+    ]
+}
+
+let user = getUser()
+print("Name: \(user["firstName", default: "Anonymous"]) \(user["lastName", default: "Anonymous"])") 
+
+// Sim, agora demos nomes significativos para as várias partes de nossos dados de usuário, mas veja essa chamada para print()- embora saibamos que ambos existirão, ainda precisamos fornecer valores padrão caso as coisas não sejam o que desejamos firstName. Espero lastName.
+
+// Ambas as soluções são muito ruins, mas o Swift tem uma solução na forma de tuplas . Como arrays, dicionários e conjuntos, as tuplas nos permitem colocar vários dados em uma única variável, mas, diferentemente dessas outras opções, as tuplas têm um tamanho fixo e podem ter uma variedade de tipos de dados.
+
+// Veja como nossa função fica quando retorna uma tupla:
+
+func getUser() -> (firstName: String, lastName: String) {
+    (firstName: "Taylor", lastName: "Swift")
+}
+
+let user = getUser()
+print("Name: \(user.firstName) \(user.lastName)")
+
+// Vamos quebrar isso…
+
+// 1 - Nosso tipo de retorno agora é (firstName: String, lastName: String), que é uma tupla contendo duas strings.
+// 2 - Cada string em nossa tupla tem um nome. Eles não estão entre aspas: são nomes específicos para cada item em nossa tupla, em oposição aos tipos de chaves arbitrárias que tínhamos nos dicionários.
+// 3 - Dentro da função, enviamos de volta uma tupla contendo todos os elementos que prometemos, anexados aos nomes: firstName está sendo definido como “Taylor”, etc.
+// 4 - Quando chamamos getUser(), podemos ler os valores da tupla usando os nomes das chaves: firstName, lastName, etc.
+
+// Eu sei que as tuplas parecem muito semelhantes aos dicionários, mas são diferentes:
+
+// 1 - Quando você acessa valores em um dicionário, o Swift não pode saber antecipadamente se eles estão presentes ou não. Sim, sabíamos que user["firstName"]estaria lá, mas Swift não pode ter certeza e, portanto, precisamos fornecer um valor padrão.
+// 2 - Quando você acessa valores em uma tupla, o Swift sabe com antecedência que está disponível porque a tupla diz que estará disponível.
+// 3 - Acessamos valores usando user.firstName: não é uma string, então também não há chance de erros de digitação.
+// 4 - Nosso dicionário pode conter centenas de outros valores ao lado de "firstName", mas nossa tupla não pode – devemos listar todos os valores que ele conterá e, como resultado, é garantido que ele contenha todos e nada mais.
+
+// Portanto, as tuplas têm uma vantagem importante sobre os dicionários: especificamos exatamente quais valores existirão e quais tipos eles têm, enquanto os dicionários podem ou não conter os valores que estamos solicitando.
+
+// Há três outras coisas que é importante saber ao usar tuplas.
+
+// Primeiro, se você está retornando uma tupla de uma função, o Swift já sabe os nomes que você está dando a cada item na tupla, então você não precisa repeti-los ao usar return. Então, este código faz a mesma coisa que nossa tupla anterior:
+
+func getUser() -> (firstName: String, lastName: String) {
+    ("Taylor", "Swift")
+}
+
+// Em segundo lugar, às vezes você descobrirá que você recebe tuplas onde os elementos não têm nomes. Quando isso acontece, você pode acessar os elementos da tupla usando índices numéricos a partir de 0, assim:
+
+func getUser() -> (String, String) {
+    ("Taylor", "Swift")
+}
+
+let user = getUser()
+print("Name: \(user.0) \(user.1)")
+
+// Esses índices numéricos também estão disponíveis com tuplas que têm elementos nomeados, mas sempre achei preferível usar nomes.
+
+// Finalmente, se uma função retorna uma tupla, você pode separar a tupla em valores individuais, se quiser.
+
+// Para entender o que quero dizer com isso, primeiro dê uma olhada neste código:
+
+func getUser() -> (firstName: String, lastName: String) {
+    (firstName: "Taylor", lastName: "Swift")
+}
+
+let user = getUser()
+let firstName = user.firstName
+let lastName = user.lastName
+
+print("Name: \(firstName) \(lastName)")
+
+// Isso volta para a versão nomeada de getUser(), e quando a tupla sai, estamos copiando os elementos de lá para conteúdos individuais antes de usá-los. Não há nada de novo aqui; estamos apenas movendo os dados um pouco.
+
+// No entanto, em vez de atribuir a tupla a user, e copiar valores individuais de lá, podemos pular a primeira etapa – podemos separar o valor de retorno getUser()em duas constantes separadas, assim:
+
+let (firstName, lastName) = getUser()
+print("Name: \(firstName) \(lastName)")
+
+// Essa sintaxe pode machucar sua cabeça no começo, mas na verdade é apenas um atalho para o que tínhamos antes: converter a tupla de dois elementos que recebemos de volta getUser()em duas constantes separadas.
+
+// Na verdade, se você não precisar de todos os valores da tupla, você pode dar um passo adiante usando _ para dizer ao Swift para ignorar essa parte da tupla:
+
+let (firstName, _) = getUser()
+print("Name: \(firstName)")
