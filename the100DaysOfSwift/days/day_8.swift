@@ -170,3 +170,15 @@ do {
 }
 
 // Como você pode ver, usando try deixa claro que a primeira, terceira e quinta chamadas de função podem gerar erros, mas a segunda e a quarta não.
+
+//----------------------------------Resumo: Funções--------------------------------
+
+// Cobrimos muito sobre funções nos capítulos anteriores, então vamos recapitular:
+
+// 1 - As funções nos permitem reutilizar o código facilmente, separando pedaços de código e dando-lhe um nome.
+// 2 - Todas as funções começam com a palavra func, seguida do nome da função. O corpo da função está contido entre chaves de abertura e fechamento.
+// 3 - Podemos adicionar parâmetros para tornar nossas funções mais flexíveis – liste-os um por um separados por vírgulas: o nome do parâmetro, depois dois pontos e depois o tipo do parâmetro.
+// 4 - Você pode controlar como esses nomes de parâmetros são usados ​​externamente, usando um nome de parâmetro externo personalizado ou usando um sublinhado para desabilitar o nome externo desse parâmetro.
+// 5 - Se você acha que há certos valores de parâmetro que você usará repetidamente, você pode fazer com que eles tenham um valor padrão para que sua função leve menos código para escrever e faça a coisa mais inteligente por padrão.
+// 6 - As funções podem retornar um valor se você quiser, mas se você quiser retornar vários dados de uma função, você deve usar uma tupla . Eles contêm vários elementos nomeados, mas são limitados de uma forma que um dicionário não é – você lista cada elemento especificamente, junto com seu tipo.
+// 7 - As funções podem gerar erros: você cria uma enumeração definindo os erros que deseja que ocorram, lança esses erros dentro da função conforme necessário e, em seguida, usa do, try e catch para tratá-los no site da chamada.
