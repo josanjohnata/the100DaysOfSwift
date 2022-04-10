@@ -151,3 +151,22 @@ do {
 // À medida que você progride, verá como as funções de lançamento são incorporadas a muitas das estruturas da própria Apple, portanto, mesmo que você não as crie muito, pelo menos precisará saber como usá -las com segurança.
 
 // Dica: A maioria dos erros gerados pela Apple fornece uma mensagem significativa que você pode apresentar ao usuário, se necessário. O Swift disponibiliza isso usando um valor error que é fornecido automaticamente dentro do seu bloco catch, e é comum ler error.localizedDescription para ver exatamente o que aconteceu.
+
+//-------------Por que o Swift nos faz usar try antes de cada função de lançamento?------------
+
+
+// O uso das funções de lançamento do Swift depende de três palavras-chave exclusivas: do, try e catch. Precisamos de todos os três para poder chamar uma função de lançamento, o que é incomum – a maioria das outras linguagens usa apenas duas, porque elas não precisam escrever try antes de cada função de lançamento.
+
+// A razão pela qual o Swift é diferente é bastante simples: ao nos forçar a usar try antes de cada função de lançamento, estamos reconhecendo explicitamente quais partes do nosso código podem causar erros. Isso é particularmente útil se você tiver várias funções de lançamento em um único bloco do, assim:
+
+do {
+    try throwingFunction1()
+    nonThrowingFunction1()
+    try throwingFunction2()
+    nonThrowingFunction2()
+    try throwingFunction3()
+} catch {
+    // handle errors
+}
+
+// Como você pode ver, usando try deixa claro que a primeira, terceira e quinta chamadas de função podem gerar erros, mas a segunda e a quarta não.
